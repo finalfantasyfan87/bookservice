@@ -24,4 +24,9 @@ public class BookController {
     public List<Book> findAllBooks(){
         return bookService.findAllBooks();
     }
+
+    @GetMapping("/findBookByTitle/{title}")
+    public List<Book> findBookByPartialTitle(@PathVariable String title){
+        return bookService.findBooksByPartialTitle(title);
+    }
 }

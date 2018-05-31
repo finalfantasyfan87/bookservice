@@ -4,8 +4,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service("bookService")
-public class BookServiceImpl  implements BookService{
+public class BookServiceImpl implements BookService {
 
 
     @Override
@@ -19,7 +21,18 @@ public class BookServiceImpl  implements BookService{
     @Override
     public Book findBookById(Long id) {
 
-        return findAllBooks().stream().filter(book -> book.getId() == id).findFirst().map(book -> book).orElse(null);
+        return findAllBooks().stream()
+                .filter(book -> book.getId().equals(id))
+                .findFirst().orElse(null);
+    }
+
+    @Override
+    public List<Book> findBooksByPartialTitle(String title) {
+
+        return findAllBooks().stream()
+                .filter(books -> books.getName()
+                .contains(title.toLowerCase()))
+                .collect(Collectors.toList());
     }
 
 
