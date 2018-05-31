@@ -13,17 +13,17 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> findAllBooks() {
         List<Book> listofBooks = new ArrayList<>();
-        Author author1 = new Author(1L, "John Lee");
-        Author author2 = new Author(2L, "Jasmine Young");
-        listofBooks.add(new Book(1L, "A Book Of Life",author1));
-        listofBooks.add(new Book(2L, "Friendly Life", author2));
+        Author author1 = new Author(1L, "JOHN LEE");
+        Author author2 = new Author(2L, "JASMINE YOUNG");
+        listofBooks.add(new Book(1L, "A BOOK OF LIFE",author1));
+        listofBooks.add(new Book(2L, "FRIENDLY ADVICE", author2));
         return listofBooks;
     }
 
     @Override
     public List<Book> findAllBooksByAuthor(String authorName) {
         return findAllBooks().stream().filter(book -> book
-                .getAuthor().getName().equalsIgnoreCase(authorName))
+                .getAuthor().getName().contains(authorName.toUpperCase()))
                 .collect(Collectors.toList());
     }
 
@@ -40,7 +40,7 @@ public class BookServiceImpl implements BookService {
 
         return findAllBooks().stream()
                 .filter(books -> books.getName()
-                .contains(title))
+                .contains(title.toUpperCase()))
                 .collect(Collectors.toList());
     }
 

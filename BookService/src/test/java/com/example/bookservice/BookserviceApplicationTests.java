@@ -57,8 +57,8 @@ public class BookserviceApplicationTests {
     @Test
     public void testfindBookByPartialTitle(){
         List<Book> books = bookService.findBooksByPartialTitle("f");
-        Assert.assertEquals("A Book Of Life",books.get(0).getName());
-        Assert.assertEquals("Friendly Life",books.get(1).getName());
+        Assert.assertEquals("A BOOK OF LIFE",books.get(0).getName());
+        Assert.assertEquals("FRIENDLY ADVICE",books.get(1).getName());
 
     }
 
