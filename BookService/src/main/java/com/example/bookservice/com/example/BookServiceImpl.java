@@ -28,6 +28,13 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public List<Book> addBook(Book book) {
+        Book newBook = new Book(System.nanoTime(), "", new Author());
+       findAllBooks().add(newBook);
+        return  findAllBooks();
+    }
+
+    @Override
     public Book findBookById(Long id) {
 
         return findAllBooks().stream()

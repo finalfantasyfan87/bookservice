@@ -18,7 +18,7 @@ import java.util.List;
 Using this project build a rest service for a library. It should return
 •	list of all books,
 •	list of books by Author
-•	list of books by partial Title match string search?
+•	list of books by partial Title match
 •	Add a book to the list
 
 */

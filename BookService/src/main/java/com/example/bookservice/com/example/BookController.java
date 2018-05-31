@@ -1,9 +1,7 @@
 package com.example.bookservice.com.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +18,7 @@ public class BookController {
     }
 
 
-    @GetMapping("/findAllBooks")
+    @GetMapping("getAllBooks")
     public List<Book> findAllBooks(){
         return bookService.findAllBooks();
     }
@@ -34,5 +32,11 @@ public class BookController {
     @GetMapping("/findBookByAuthor/{authorName}")
     public List<Book> findBooksByAuthor(@PathVariable String authorName){
         return bookService.findAllBooksByAuthor(authorName);
+    }
+
+    @PostMapping("/addBook")
+    public Book addBook(@RequestBody Book book){
+        List<Book> books = bookService.addBook(book);
+        return books.get(2);
     }
 }

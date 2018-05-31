@@ -9,5 +9,7 @@ public interface BookService {
     List<Book> findBooksByPartialTitle(String title);
     List<Book> findAllBooks();
     List<Book> findAllBooksByAuthor(String authorName);
+    List<Book> addBook(Book book);
+
 
 }
