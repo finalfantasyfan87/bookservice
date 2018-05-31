@@ -26,7 +26,13 @@ public class BookController {
     }
 
     @GetMapping("/findBookByTitle/{title}")
-    public List<Book> findBookByPartialTitle(@PathVariable String title){
+    public List<Book> findBooksByPartialTitle(@PathVariable String title){
         return bookService.findBooksByPartialTitle(title);
+    }
+
+
+    @GetMapping("/findBookByAuthor/{authorName}")
+    public List<Book> findBooksByAuthor(@PathVariable String authorName){
+        return bookService.findAllBooksByAuthor(authorName);
     }
 }

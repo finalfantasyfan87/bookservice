@@ -7,14 +7,16 @@ import org.springframework.stereotype.Repository;
 public class Book {
     Long id;
     String name;
+    Author author;
 
     public Book() {
 
     }
 
-    public Book(Long id, String name) {
+    public Book(Long id, String name, Author author) {
         this.id = id;
         this.name = name;
+        this.author = author;
     }
 
     public Long getId() {
@@ -31,5 +33,14 @@ public class Book {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 }

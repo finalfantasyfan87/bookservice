@@ -62,4 +62,9 @@ public class BookserviceApplicationTests {
 
     }
 
+    @Test
+    public void testFindBookByAuthor(){
+       List<Book> filteredBooks = bookService.findAllBooksByAuthor("John");
+        Assert.assertEquals(1L,filteredBooks.get(0).getId().longValue());
+    }
 }

@@ -8,5 +8,6 @@ public interface BookService {
     Book findBookById(Long id);
     List<Book> findBooksByPartialTitle(String title);
     List<Book> findAllBooks();
+    List<Book> findAllBooksByAuthor(String authorName);
 
 }
